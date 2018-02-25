@@ -23,3 +23,18 @@ conky -c ~/.conky/.conkyrc_bottom
 3. chmod a+x ~/bin/conky_start
 4. alt+f2 = conky_start add
 5. conky_Start cmd
+
+ wget https://github.com/hant0508/startup-settings/raw/master/debian/startup-settings-amd64.deb 
+
+ sudo dpkg -i startup-settings-amd64.deb 
+
+ add application cmd..
+
+ or create custom /home/.config/autostart ==> crate custom scripts conky_start.desktop
+
+[Desktop Entry]
+Name=conky_start
+Comment=Run conky_start
+Exec=conky_start
+Terminal=false
+Type=Application
