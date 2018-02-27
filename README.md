@@ -1,7 +1,7 @@
 # conky
-1.apt-get install conky, conky-all
-man conky
-2.apt-get install conky-manager
+1. apt-get install conky, conky-all
+    man conky
+2. apt-get install conky-manager
 3. /etc/conky/conky.conf= > default script which gets run..
 4. edit the scripts as desired..
 5. we need to run the script when os boot
@@ -15,10 +15,10 @@ Why this solution is best. we may find other conky .. and installation scripts. 
 8. Tick the conky that you want to made...
 
 ===============Creating own autostart scripts====================
-1gedit //bin/conky_start
-2.#!/bin/bash
-conky -c ~/.conky/.conkyrc_top &
-conky -c ~/.conky/.conkyrc_bottom
+1. gedit //bin/conky_start
+2. -#!/bin/bash
+    conky -c ~/.conky/.conkyrc_top &
+    conky -c ~/.conky/.conkyrc_bottom
 
 3. chmod a+x ~/bin/conky_start
 4. alt+f2 = conky_start add

@@ -1,0 +1,5 @@
+1.Hello world.
+2. Goodmorning from nepal
+3. Python for Everybody ===> chapter 2 completed
+4. Django forms completed. needs to review rest api now
+5. Please do subscibe my youtube channes

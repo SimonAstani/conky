@@ -43,7 +43,8 @@ conky.config = {
 	net_avg_samples = 2,
 	override_utf8_locale= true,
 
-	font= 'Ubuntu:style=medium:size=9'
+	font= 'Ubuntu:style=medium:size=10'
+	--Ícones: ${font Conky Icons by Carelli:size=14}
 }
 
 conky.text = [[
@@ -57,6 +58,7 @@ ${color3}Uptime:${color} $uptime ${color1}   							 	${alignr}Load:${color} $lo
 $hr
 #
 #==================HDD Information =================
+${font Conky Icons by Carelli:size=14}ň${font Verana:style=Bold:size=8}  Disk usages${font Conky Icons by Carelli:size=14}
 ${font Verana:style=Bold:size=7}${color #F80043}MEM:  ${color }$memperc% ($mem/$memmax)
 ${color white}${membar 4,130}
 ${font Verana:style=Bold:size=7}${color #F80043}SWAP: ${color }$swapperc% ($swap/$swapmax)
@@ -68,38 +70,40 @@ ${color white}${fs_bar 4,130 /home}
 
 #
 # ===========Netwrok Information==============
-${offset 200}${voffset -100}${font Verana:style=Bold:size=8}IP Address: ${font Verana:size=8}${gw_ip}
+${offset 200}${voffset -146}${font Conky Icons by Carelli:size=14}h${font Verana:style=Bold:size=8}  IP Address: ${font Verana:size=8}${gw_ip}
 #${color}Network Usages: 
 ${if_existing /sys/class/net/eth0/operstate up}${color #F80043} IP (eth0): 
 ${color }${execi 60 LANG=en_US; /sbin/ifconfig eth0 | grep "inet addr:" | cut -d : -f 2 | awk '{print $1}'}
-${alignc}${color #F80043} Upload: ${color }${upspeed eth0}/s   		 $(alignr) ${upspeedgraph eth0 60,250 07CC0D FF0000 -t}  
-${color #F80043} Download: ${color }${downspeed eth0}/s 	 $(alignr)${downspeedgraph eth0 60,250 000000 ffffff}
+${alignc}${color #F80043} Upload: ${color }${upspeed eth0}/s   		 $(alignr) ${upspeedgraph eth0 60,400 07CC0D FF0000 -t}  
+${color #F80043} Download: ${color }${downspeed eth0}/s 	 $(alignr)${downspeedgraph eth0 60,400 000000 ffffff}
 
 ${else}
-${offset 200}${if_existing /sys/class/net/wlan0/operstate up}${color #F80043} IP (wlan0): ${color }${execi 60 LANG=en_US; /sbin/ifconfig wlan0 | grep "inet addr:" | cut -d : -f 2 | awk '{print $1}'}
-${offset 250}${color #F80043} Upload: ${color }${upspeed wlan0}/s
-${offset 250}${voffset -10}${upspeedgraph wlan0  30,140 07CC0D FF0000 -t}
-${offset 250}${color #F80043} Download: ${color }${downspeed wlan0}/s
-${offset 250}${downspeedgraph wlan0  30,140 07CC0D FF0000 -t}
+${offset 170}${if_existing /sys/class/net/wlan0/operstate up}${color #F80043} IP (wlan0): ${color }${execi 60 LANG=en_US; /sbin/ifconfig wlan0 | grep "inet addr:" | cut -d : -f 2 | awk '{print $1}'}
+${offset 160}${color #F80043} Upload: ${color }${upspeed wlan0}/s  Uploaded:${totalup wlan0}
+${offset 180}${voffset 10}${upspeedgraph wlan0  20,200 07CC0D FF0000 -t}
+${offset 160}${color #F80043} Download: ${color }${downspeed wlan0}/s Downloaded:${totaldown wlan0}
+${offset 180}${downspeedgraph wlan0  30,200 07CC0D FF0000 -t}
 ${endif}
 ${endif}
 #
-
-
+#
+#
+# tux icon  and time
+${voffset -20}${goto 20}${color #000000}${font Conky Icons by Carelli:size=90}ƃ${voffset -60}${color}${goto 110}${font Conky Icons by Carelli:size=40}ǒ${font Radio Space:size=30}${uptime_short}${goto 225}
+${goto 250}${font Conky Icons by Carelli:size=30}Ƌ${font Radio Space:size=30}${time %H.%M}${font}
+${goto 170}${hr 2}
+#
 #
 #=========Ram Usages==================
-${offset 250}${voffset 40}${color3}RAM: $memperc% = $mem / $memmax				#${color white}${membar 5,150}
+${offset 160}${voffset 10}${font Conky Icons by Carelli:size=14}B${font Radio Space:size=9}${color3}RAM: $memperc% = $mem / $memmax
+#${color white}${membar 5,150}
 ${offset 250}${voffset 2}${color ffffff}${font monofur:size=10}${top_mem name 1} ${top_mem mem_res 1}
 ${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 2} ${top_mem mem_res 2}
 ${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 3} ${top_mem mem_res 3}
 ${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 4} ${top_mem mem_res 4}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 5} ${top_mem mem_res 5}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 6} ${top_mem mem_res 6}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 7} ${top_mem mem_res 7}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 8} ${top_mem mem_res 8}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 9} ${top_mem mem_res 9}
-${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 10} ${top_mem mem_res 10}
-
+${offset 250}${voffset}${color ffffff}${font monofur:size=10}${top_mem name 5} 
+#
+${#FF5A45}${cpugraph cpu2 40,350 66241C FF5A45}
 #
 #
 #======= top process==============
@@ -110,35 +114,19 @@ ${color}${top name 2}	 ${top pid 2} ${top cpu 2} ${top mem 2} ${top time 2} ${to
 ${color}${top name 3}	 ${top pid 3} ${top cpu 3} ${top mem 3} ${top time 3} ${top user 3}
 ${color}${top name 4}	 ${top pid 4} ${top cpu 4} ${top mem 4} ${top time 4} ${top user 4}
 ${color}${top name 5}	 ${top pid 5} ${top cpu 5} ${top mem 5} ${top time 5} ${top user 5}
+#
+#
+#
 
-
-
-${color #88cc00}${cpugraph 60,240 07CC0D FF0000 -t}
-
+#
 # read emails
 ${execi 300 python ~/root/.conky/custom/gmail.py}
 # Internet useages
-
-
+#
+#
 # todo list
 #${font Verana:style=Bold:size=9}To Do List
 #${font Verana:size=8}${execi 30 cat /root/.conky/custom/todo.txt}
 
-
-
-
-#${color1}
-#${voffset 5}
-#${alignr}${font Ubuntu:style=Medium:pixelsize=20}${time %H:%M}${font}
-#${voffset 10}
-#${alignr}${font Ubuntu:style=Medium:pixelsize=13}${time %A %d %B %Y}${font}
-#${font FontAwesome}${font} ${alignr}${exec curl ipinfo.io/ip}
-#${font FontAwesome}${font}   disques ${alignr}${hddtemp /dev/sda}°.${hddtemp /dev/sdb}°.${hddtemp /dev/sdc}°
-#.${hddtemp /dev/sdd}°.${hddtemp /dev/sde}°.${hddtemp /dev/sdf}°.
-#${hr}
-#${font FontAwesome}${font}   cpu ${alignr}${hwmon 0 temp 1}°.${hwmon 0 temp 2}°.${hwmon 0 temp 3}°
-#${font FontAwesome}${font}   ventilo ${alignr}${hwmon 0 fan 1} tour/min
-#${color3}${cpugraph cpu1 50,133 5e7b7b d8deeb -t} ${cpugraph cpu2 50,133 5e7b7b d8deeb -t}
-${cpugraph cpu3 50,133 5e7b7b d8deeb -t} ${cpugraph cpu4 50,133 5e7b7b d8deeb -t}
-
 ]]
+
