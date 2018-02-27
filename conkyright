@@ -85,7 +85,7 @@ $hr
 #
 # =======todolist================
 ${font Verana:style=Bold:size=9}To Do List
-${font Verana:size=8}${execi 30 cat completePathHere/todo.txt}
+${font Verana:size=8}${execi 30 cat /root/.conky/custom/todo.txt}
 #
 $hr
 
